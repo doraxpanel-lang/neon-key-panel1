@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEON KEY PANEL</title>
+<style>
+:root{--bg:#07080d;--card:#10111a;--line:#252638;--cyan:#00eaff;--pink:#ff176b;--green:#21d68b;--muted:#9da6bb;--text:#f5f7ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#17152a 0,#07080d 55%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{position:sticky;top:0;z-index:5;background:#090a10ed;border-bottom:1px solid #252638;backdrop-filter:blur(12px);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:900;letter-spacing:1px;color:var(--cyan);text-shadow:0 0 16px #00eaff66}.brand small{display:block;font-size:10px;color:var(--muted);letter-spacing:3px}
+button,.btn{border:0;border-radius:12px;padding:11px 14px;font-weight:800;cursor:pointer;color:#061014;background:linear-gradient(110deg,var(--green),var(--cyan));text-decoration:none;display:inline-block}
+.ghost{background:#151622;color:var(--text);border:1px solid #33364c}
+.wrap{max-width:1050px;margin:auto;padding:20px 16px 50px}.hero{border:1px solid #282a3e;border-radius:22px;padding:23px;background:linear-gradient(130deg,#17101f,#0d1820);box-shadow:0 0 24px #00eaff12;margin-bottom:18px}
+h1{font-size:clamp(25px,5vw,40px);margin:0 0 8px}.sub{color:var(--muted);line-height:1.55;margin:0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.card{background:linear-gradient(145deg,#11121b,#0c0d13);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 0 18px #b04dff10}.label{font-size:12px;letter-spacing:2px;color:var(--muted)}.value{font-size:29px;font-weight:850;margin:8px 0}.pink{color:var(--pink);text-shadow:0 0 16px #ff176b33}.cyan{color:var(--cyan)}.green{color:var(--green)}
+.section-title{margin:25px 0 12px;font-size:18px}.actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.action{min-height:90px;text-align:left;background:#0d0e15;color:var(--text);border:1px solid #2b2d43;box-shadow:0 0 14px #00eaff10}.action span{display:block;font-size:23px;margin-bottom:7px}.notice{margin-top:16px;padding:13px;border:1px solid #59471f;background:#1c170d;color:#e7d5a2;border-radius:12px;font-size:13px;line-height:1.5}
+.panel{display:none;margin-top:16px}.panel.active{display:block}.field{display:block;width:100%;padding:12px;border-radius:10px;border:1px solid #34364a;background:#080910;color:white;margin:8px 0 13px}label{font-size:13px;color:#b9c0d3}.product{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid #282a3b}.product:last-child{border-bottom:0}footer{text-align:center;color:#7e879b;font-size:12px;padding:25px 0}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.actions{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{padding:32px}}
+@media(max-width:360px){.grid,.actions{grid-template-columns:1fr}.brand{font-size:13px}}
+</style>
+</head>
+<body>
+<header><div class="brand">NEON KEY PANEL<small>DIGITAL RESELLER</small></div><button class="ghost" onclick="toggleMenu()">☰ MENU</button></header>
+<main class="wrap">
+<section class="hero"><div class="label cyan">RESELLER DASHBOARD</div><h1>Sell digital keys.<br><span class="pink">Glow while you grow.</span></h1><p class="sub">A mobile-first starter dashboard for digital products, activation codes, orders and reseller tools.</p><p style="margin:18px 0 0"><button onclick="showPanel('products')">Browse products</button> <button class="ghost" onclick="showPanel('deposit')">Deposit demo</button></p></section>
+<section class="grid">
+<div class="card"><div class="label">WALLET BALANCE</div><div class="value pink">₹0.00</div><div class="sub">Demo balance only</div></div>
+<div class="card"><div class="label">TODAY'S ORDERS</div><div class="value">0</div><div class="sub">No live orders connected</div></div>
+<div class="card"><div class="label">MONTHLY SALES</div><div class="value cyan">₹0.00</div><div class="sub">Demo statistics</div></div>
+</section>
+<h2 class="section-title">Quick actions</h2>
+<section class="actions" id="menu">
+<button class="action" onclick="showPanel('deposit')"><span class="cyan">▣</span>Deposit</button>
+<button class="action" onclick="showPanel('products')"><span class="pink">🛒</span>Buy Keys</button>
+<button class="action" onclick="showPanel('keys')"><span class="green">⚿</span>My Keys</button>
+<button class="action" onclick="showPanel('orders')"><span class="cyan">◷</span>History</button>
+<button class="action" onclick="showPanel('support')"><span class="pink">☏</span>Support Ticket</button>
+<button class="action" onclick="showPanel('account')"><span class="green">⚙</span>API & Account</button>
+</section>
+<section class="panel card" id="products"><h2>Buy Keys</h2><p class="sub">Sample catalogue — no real products or codes are connected.</p><div class="product"><div><b>Digital Key — Basic</b><div class="sub">Sample product</div></div><b>₹99</b></div><div class="product"><div><b>Digital Key — Plus</b><div class="sub">Sample product</div></div><b>₹199</b></div><div class="product"><div><b>Digital Key — Pro</b><div class="sub">Sample product</div></div><b>₹399</b></div><div class="notice">Purchases are disabled in this demo. Connect a secure backend and legitimate supplier before selling.</div></section>
+<section class="panel card" id="deposit"><h2>Deposit</h2><p class="sub">Test interface only. No money is collected and wallet balance will not change.</p><label>Amount (₹)</label><input class="field" type="number" min="1" placeholder="Enter amount"><button onclick="alert('Demo only: connect a payment gateway and server-side webhook before accepting payments.')">Continue to payment (demo)</button></section>
+<section class="panel card" id="keys"><h2>My Keys</h2><p class="sub">Your purchased activation codes will appear here after secure delivery is implemented.</p></section>
+<section class="panel card" id="orders"><h2>History</h2><p class="sub">No transactions yet. Real history requires a database and authenticated account.</p></section>
+<section class="panel card" id="support"><h2>Support Ticket</h2><label>Message</label><textarea class="field" rows="3" placeholder="Describe your issue"></textarea><button onclick="alert('Demo only: support tickets are not saved yet.')">Submit demo ticket</button></section>
+<section class="panel card" id="account"><h2>API & Account</h2><p class="sub">Do not enter secret API keys here. Credentials must be stored in protected server environment variables.</p><p class="notice">Admin, reseller management, referral rewards, authentication and real API calls are not enabled in this static starter.</p></section>
+<div class="notice"><b>Prototype notice:</b> This is a static visual starter. Login, database, admin permissions, payment verification, key inventory and provider API automation are not implemented. Never use it to collect real payments until those parts are securely built and tested.</div>
+<footer>NEON KEY PANEL · Starter prototype</footer>
+</main>
+<script>
+function showPanel(id){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));const p=document.getElementById(id);if(p){p.classList.add('active');p.scrollIntoView({behavior:'smooth',block:'start'})}}
+function toggleMenu(){document.getElementById('menu').scrollIntoView({behavior:'smooth',block:'start'})}
+</script>
+</body></html>
