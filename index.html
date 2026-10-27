@@ -4,7 +4,81 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LOKI PANEL</title>
-<style>
+
+/* LOKI PANEL authentication */
+.auth-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: #090b12;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 390px;
+  text-align: center;
+}
+
+.auth-box h1 {
+  color: #00e5ff;
+  font-size: 32px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 18px #00e5ff66;
+}
+
+.auth-box input {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin: 13px 0;
+  box-sizing: border-box;
+  background: #03050a;
+  color: white;
+  border: 1px solid #353b47;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+.auth-box button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 12px;
+  background: #00dff5;
+  color: #001018;
+  border: 0;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.auth-box .auth-link {
+  background: transparent;
+  color: #00e5ff;
+  cursor: pointer;
+}
+
+.auth-box p {
+  color: #aeb8c7;
+}
+
+#authMessage {
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+
+body:not(.authenticated) header,
+body:not(.authenticated) main {
+  display: none;
+}
+
+#authScreen[hidden] {
+  display: none;
+}
+
+ <style>
 :root{--bg:#07080d;--card:#10111a;--line:#252638;--cyan:#00eaff;--pink:#ff176b;--green:#21d68b;--muted:#9da6bb;--text:#f5f7ff}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#17152a 0,#07080d 55%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
 header{position:sticky;top:0;z-index:5;background:#090a10ed;border-bottom:1px solid #252638;backdrop-filter:blur(12px);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -21,6 +95,56 @@ h1{font-size:clamp(25px,5vw,40px);margin:0 0 8px}.sub{color:var(--muted);line-he
 </style>
 </head>
 <body>
+
+<section class="auth-screen" id="authScreen">
+  <div class="auth-box">
+    <div style="font-size:55px">🛡️</div>
+    <h1>LOKI PANEL</h1>
+    <p id="authSubtitle">AUTHORIZE ACCESS</p>
+
+    <form id="authForm">
+      <input
+        id="authUsername"
+        placeholder="USER NAME"
+        autocomplete="username"
+        maxlength="24"
+        hidden
+      >
+
+      <input
+        id="authEmail"
+        type="email"
+        placeholder="EMAIL ADDRESS"
+        autocomplete="email"
+        required
+      >
+
+      <input
+        id="authPassword"
+        type="password"
+        placeholder="PASSWORD (MINIMUM 8 CHARACTERS)"
+        minlength="8"
+        autocomplete="current-password"
+        required
+      >
+
+      <button id="authSubmit" type="submit">
+        LOGIN NOW
+      </button>
+    </form>
+
+    <button id="authSwitch" class="auth-link" type="button">
+      New User? Create Account
+    </button>
+
+    <button id="authForgot" class="auth-link" type="button">
+      Forgot Password?
+    </button>
+
+    <p id="authMessage" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
 <header><div class="brand">LOKI PANEL<small>DIGITAL RESELLER</small></div><button class="ghost" onclick="toggleMenu()">☰ MENU</button></header>
 <main class="wrap">
 <section class="hero"><div class="label cyan">RESELLER DASHBOARD</div><h1>Sell digital keys.<br><span class="pink">Glow while you grow.</span></h1><p class="sub">A mobile-first starter dashboard for digital products, activation codes, orders and reseller tools.</p><p style="margin:18px 0 0"><button onclick="showPanel('products')">Browse products</button> <button class="ghost" onclick="showPanel('deposit')">Deposit demo</button></p></section>
