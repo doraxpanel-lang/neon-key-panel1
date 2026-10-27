@@ -1,51 +1,42 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LOKI PANEL | Login</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:#080b12;color:#f4f7ff;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;padding:22px}
-.login{width:100%;max-width:410px;background:#0d121c;border:1px solid #202b3b;border-radius:22px;padding:30px 22px;box-shadow:0 0 35px #00d9ff13}
-.logo{text-align:center;margin-bottom:28px}
-.shield{font-size:52px;filter:drop-shadow(0 0 12px #00e5ff)}
-h1{text-align:center;font-size:27px;letter-spacing:2px;margin:10px 0;color:#fff}
-h1 span{color:#00e5ff}
-.subtitle{text-align:center;color:#91a1b8;letter-spacing:4px;font-size:11px;margin-bottom:30px}
-label{display:block;color:#a9b8ce;font-size:13px;margin:15px 0 8px}
-input{width:100%;padding:15px;background:#03060b;border:1px solid #303846;border-radius:12px;color:white;font-size:16px;outline:none}
-input:focus{border-color:#00e5ff}
-button{width:100%;border:0;border-radius:12px;padding:15px;font-size:16px;font-weight:bold;background:linear-gradient(90deg,#00d9ff,#19e6b3);color:#041018;margin-top:22px}
-.links{text-align:center;margin-top:22px;line-height:2;color:#00e5ff}
+body{margin:0;min-height:100vh;background:#080b12;color:#f4f7ff;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;padding:20px}
+.login{width:100%;max-width:420px;background:#0d121c;border:1px solid #202b3b;border-radius:22px;padding:30px 22px;box-shadow:0 0 30px #00e5ff12}
+h1{text-align:center;color:#00e5ff;letter-spacing:2px}
+.subtitle{text-align:center;color:#aab4c8;margin:24px 0}
+label{display:block;margin:15px 0 8px;color:#a9b8ce;font-size:13px}
+input{display:block;width:100%;padding:16px;background:#03060b;border:1px solid #303846;border-radius:12px;color:white;font-size:16px;margin-bottom:14px}
+button{width:100%;padding:16px;border:0;border-radius:12px;background:#00d9ee;color:#061019;font-size:17px;font-weight:bold;cursor:pointer}
+.links{text-align:center;margin-top:24px;line-height:2.2}
 a{color:#00e5ff;text-decoration:none}
-.note{text-align:center;color:#73839a;font-size:12px;margin-top:25px}
-#message{font-size:13px;overflow-wrap:anywhere;color:#ff8d9b;margin-top:14px}
+#authMessage{font-size:14px;overflow-wrap:anywhere;margin-top:14px;color:#ffb8b8}
 </style>
 </head>
 <body>
-<main class="login">
-  <div class="logo">
-    <div class="shield">🛡️</div>
-    <h1>LOKI <span>PANEL</span></h1>
-    <div class="subtitle">AUTHORIZE ACCESS</div>
-  </div>
-  <form id="loginForm">
-    <label for="email">EMAIL ADDRESS</label>
-    <input id="email" type="email" placeholder="you@example.com" autocomplete="email" required>
-    <label for="password">PASSWORD</label>
-    <input id="password" type="password" placeholder="Your password" autocomplete="current-password" required>
-    <button type="submit">LOGIN NOW</button>
-    <div id="message" role="status"></div>
-  </form>
-  <div class="links">
-    <a href="signup.html">New User? Create Account</a><br>
-    <a href="reset-password.html">Forgot Password?</a><br>
-    <a href="index.html">← Back to Home</a>
-  </div>
-  <div class="note">SECURE DIGITAL RESELLER PANEL</div>
-</main>
-<script src="auth.js"></script>
-</body>
+<main class="login" id="authScreen">
+<h1>🛡️ LOKI PANEL</h1>
+<div class="subtitle" id="authSubtitle">AUTHORIZE ACCESS</div><form id="authForm">
+<div id="usernameField" hidden>
+<label for="authUsername">USERNAME</label>
+<input id="authUsername" type="text" placeholder="Choose a username" minlength="3" autocomplete="username">
+</div><label for="authEmail">EMAIL ADDRESS</label>
+<input id="authEmail" type="email" placeholder="you@example.com" autocomplete="email" required>
+
+<label for="authPassword">PASSWORD</label>
+<input id="authPassword" type="password" placeholder="Minimum 8 characters" minlength="8" autocomplete="current-password" required>
+
+<button id="authSubmit" type="submit">LOGIN NOW</button>
+
+<div id="authMessage" role="status" aria-live="polite"></div>
+</form><div class="links">
+<a href="reset-password.html" id="authForgot">Forgot Password?</a><br>
+<a href="#" id="authSwitch">New User? Create Account</a><br>
+<a href="index.html">Back to Home</a>
+</div>
+</main><script src="auth.js"></script></body>
 </html>
