@@ -174,5 +174,6 @@ h1{font-size:clamp(25px,5vw,40px);margin:0 0 8px}.sub{color:var(--muted);line-he
 <script>
 function showPanel(id){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));const p=document.getElementById(id);if(p){p.classList.add('active');p.scrollIntoView({behavior:'smooth',block:'start'})}}
 function toggleMenu(){document.getElementById('menu').scrollIntoView({behavior:'smooth',block:'start'})}
-</script>
-</body></html>
+<script type="module" src="/auth.js"></script>
+</body>
+</html>
